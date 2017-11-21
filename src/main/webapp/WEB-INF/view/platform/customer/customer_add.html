@@ -1,0 +1,31 @@
+@layout("/common/_curd/_container.html"){
+
+	<form data-url="${basePath}/${code}/save" method="post" class="form-horizontal" role="form">
+		<!-- 表单 -->
+		@ var _table="user";
+		@ var _col=[
+@			  {name:"用户编号", index:"id", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"nick_name", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"password", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"mobile", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"email", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"gender", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"active_degree", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"birthday", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"signature", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"registe_time", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"province", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"city", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"head_img_url", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"fk_resource_id", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"introduction", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"status", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"version", type:"text",newline:true,length:8,required:"required"}		
+		@		   ];
+		@ include("/common/_curd/_add.html", {"col":_col, "table":_table}){}
+		
+		<!-- 按钮 -->
+		@ include("/common/_curd/_btn.html", {btn_save:"新增", btn_close:"关闭"}) {}
+	</form>
+
+@}

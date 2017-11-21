@@ -1,0 +1,31 @@
+@layout("/common/_curd/_container.html"){
+
+	<form class="form-horizontal" role="form">
+		<!-- 表单 -->
+		@ var _col=[
+			
+@			  {name:"用户编号", index:"id", type:"text",newline:true,length:8},
+		@			  {name:"", index:"nick_name", type:"text",newline:true,length:8},
+		@			  {name:"", index:"password", type:"text",newline:true,length:8},
+		@			  {name:"", index:"mobile", type:"text",newline:true,length:8},
+		@			  {name:"", index:"email", type:"text",newline:true,length:8},
+		@			  {name:"", index:"gender", type:"text",newline:true,length:8},
+		@			  {name:"", index:"active_degree", type:"text",newline:true,length:8},
+		@			  {name:"", index:"birthday", type:"text",newline:true,length:8},
+		@			  {name:"", index:"signature", type:"text",newline:true,length:8},
+		@			  {name:"", index:"registe_time", type:"text",newline:true,length:8},
+		@			  {name:"", index:"province", type:"text",newline:true,length:8},
+		@			  {name:"", index:"city", type:"text",newline:true,length:8},
+		@			  {name:"", index:"head_img_url", type:"text",newline:true,length:8},
+		@			  {name:"", index:"fk_resource_id", type:"text",newline:true,length:8},
+		@			  {name:"", index:"introduction", type:"text",newline:true,length:8},
+		@			  {name:"", index:"status", type:"text",newline:true,length:8},
+		@			  {name:"", index:"version", type:"text",newline:true,length:8}		
+		@		   ];
+		@ include("/common/_curd/_view.html", {"col":_col}){}
+		
+		<!-- 按钮 -->
+		@ include("/common/_curd/_btn.html", {btn_close:"关闭"}) {}
+	</form>
+
+@}
