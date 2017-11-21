@@ -1,0 +1,26 @@
+@layout("/common/_curd/_container.html"){
+
+	<form data-url="${basePath}/${code}/update" method="post" class="form-horizontal" role="form">
+		<!-- 表单 -->
+		@ var _table="activation_code";
+		@ var _key="id";
+		@ var _col=[
+@			  {name:"业务编号", index:"id", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"激活码", index:"activation_code", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"设备表关联id(关联设备表中的dev_related_id)", index:"dev_related_id", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"批次号", index:"batch_number", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"成功激活的设备数", index:"activation_device_numbers", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"下载状态: 0未下载 1已经下载", index:"down_load_status", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"逻辑删除状态，0为启用，1为删除", index:"del_status", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"创建时间", index:"create_time", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"修改时间", index:"update_time", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"descs", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"version", type:"text",newline:true,length:8,required:"required"}		
+		@		   ];
+		@ include("/common/_curd/_edit.html", {"col":_col, "table":_table, "key":_key}){}
+		
+		<!-- 按钮 -->
+		@ include("/common/_curd/_btn.html", {btn_save:"修改", btn_close:"关闭"}) {}
+	</form>
+
+@}

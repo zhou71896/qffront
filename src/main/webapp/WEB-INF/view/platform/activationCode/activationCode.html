@@ -1,0 +1,72 @@
+@layout("/common/_curd/_container.html"){
+
+<script type="text/javascript">
+	var ctx = "${basePath}";
+	var grid_selector = "#grid-table";
+	var pager_selector = "#grid-pager";
+	
+	$(function(){
+		initGrid();
+		initMenuBtn("btns", "${code}");
+	});
+	
+	function initGrid(){
+		var grid_url = ctx + "/${code}/list";
+		var _colnames = ["业务编号", 
+						"激活码", 
+						"设备表关联id",
+						"成功激活的设备数",
+						"下载状态: 0未下载 1已经下载", 
+						"创建时间",
+						"修改时间", 
+						"相关描述"];
+		var _colmodel = [{name:"id", index:"id", width:100},
+						{name:"activation_code", index:"activation_code", width:100},
+						{name:"dev_related_id", index:"dev_related_id", width:100},
+						{name:"activation_device_numbers", index:"activation_device_numbers", width:100},
+						{name:"down_load_status", index:"down_load_status", width:100},
+						{name:"create_time", index:"create_time", width:100},
+						{name:"update_time", index:"update_time", width:100},
+						{name:"descs", index:"descs", width:100}];
+
+		jQuery(grid_selector).jqGrid({
+			url : grid_url,
+		    shrinkToFit : true,
+			colNames : _colnames,
+			colModel : _colmodel, 
+			jsonReader : {id :"id"},
+			pager : pager_selector,
+			postData : {sort : "id", order : "desc"}
+		});
+	}
+</script>
+
+
+	<!-- 配置 grid -->
+	<div class="row">
+		<div class="col-xs-12 tb-grid">
+			<!-- 配置 查询 -->
+			@ var _col=[
+@		{name:"业务编号", index:"id", type:"text"},
+			@		{name:"激活码", index:"activation_code", type:"text"},
+			@		{name:"设备表关联id", index:"dev_related_id", type:"text"},
+			@		{name:"成功激活的设备数", index:"activation_device_numbers", type:"text"},
+			@		{name:"下载状态: 0未下载 1已经下载", index:"down_load_status", type:"text"},
+			@		{name:"创建时间", index:"create_time", type:"text"},
+			@		{name:"修改时间", index:"update_time", type:"text"},
+			@		{name:"相关描述", index:"descs", type:"text"}
+			@];
+			@ include("/common/_function/_search.html",{"col":_col}){}
+			<!-- 按钮 -->
+			<div class="welljq well-sm" id="btns"></div>
+			<!-- grid -->
+			<table id="grid-table"></table>
+			<!-- 分页-->
+			<div id="grid-pager"></div>
+		</div>
+	</div>
+	
+	<!-- 引入所需的js -->
+	@include("/common/_listscript.html"){}
+	
+@}	

@@ -1,0 +1,23 @@
+@layout("/common/_curd/_container.html"){
+
+	<form data-url="${basePath}/${code}/save" method="post" class="form-horizontal" role="form">
+		<!-- 表单 -->
+		@ var _table="device";
+		@ var _col=[
+@			  {name:"", index:"id", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"dev_related_id", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"device_id", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"del_status", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"create_time", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"update_time", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"device_str", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"activation_code", type:"text",newline:true,length:8,required:"required"},
+		@			  {name:"", index:"version", type:"text",newline:true,length:8,required:"required"}		
+		@		   ];
+		@ include("/common/_curd/_add.html", {"col":_col, "table":_table}){}
+		
+		<!-- 按钮 -->
+		@ include("/common/_curd/_btn.html", {btn_save:"新增", btn_close:"关闭"}) {}
+	</form>
+
+@}

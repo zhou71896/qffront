@@ -71,6 +71,10 @@ var exwhere;
         	this.open(this.url);
             return;
         }
+        if(this.alias == "generate"){
+    	    this.open(this.url);
+    	    return;
+        }
         if (this.alias == "addex") {
             if (rows > 1) {
                 layer_alert('只能选择一条数据作为父!', "warn");
@@ -401,6 +405,52 @@ var exwhere;
                     }
                     else {
                     	layer_post(data);
+                    }
+                }, "json");
+
+            }, function () {
+                //layer.msg('已取消');
+            });
+            return;
+        }
+        if(this.alias=="generateCode"){
+            var _this = this;
+            var url=this.url;
+            layer.confirm('是否生成激活码？', {
+                icon: 3,
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                $.post(url, { ids: ids }, function (data) {
+                    if (data.code === 0) {
+                        layer_alert(data.message, "success");
+                        searchGrid();
+                        _this.initOther();
+                    }
+                    else {
+                        layer_post(data);
+                    }
+                }, "json");
+
+            }, function () {
+                //layer.msg('已取消');
+            });
+            return;
+        }
+        if(this.alias=="downLoadCode"){
+            var _this = this;
+            var url=this.url;
+            layer.confirm('是否下载激活码？', {
+                icon: 3,
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                $.post(url, { ids: ids }, function (data) {
+                    if (data.code === 0) {
+                        layer_alert(data.message, "success");
+                        searchGrid();
+                        _this.initOther();
+                    }
+                    else {
+                        layer_post(data);
                     }
                 }, "json");
 
