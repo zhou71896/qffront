@@ -16,18 +16,20 @@
 						"激活码", 
 						"设备表关联id",
 						"成功激活的设备数",
-						"下载状态: 0未下载 1已经下载", 
+						"下载状态: 0未下载 1已经下载",
+            			"相关描述",
 						"创建时间",
-						"修改时间", 
-						"相关描述"];
+						"修改时间"
+						];
 		var _colmodel = [{name:"id", index:"id", width:100},
 						{name:"activation_code", index:"activation_code", width:100},
 						{name:"dev_related_id", index:"dev_related_id", width:100},
 						{name:"activation_device_numbers", index:"activation_device_numbers", width:100},
 						{name:"down_load_status", index:"down_load_status", width:100},
+            			{name:"descs", index:"descs", width:100},
 						{name:"create_time", index:"create_time", width:100},
-						{name:"update_time", index:"update_time", width:100},
-						{name:"descs", index:"descs", width:100}];
+						{name:"update_time", index:"update_time", width:100}
+						];
 
 		jQuery(grid_selector).jqGrid({
 			url : grid_url,
@@ -52,9 +54,9 @@
 			@		{name:"设备表关联id", index:"dev_related_id", type:"text"},
 			@		{name:"成功激活的设备数", index:"activation_device_numbers", type:"text"},
 			@		{name:"下载状态: 0未下载 1已经下载", index:"down_load_status", type:"text"},
+			@		{name:"相关描述", index:"descs", type:"text"},
 			@		{name:"创建时间", index:"create_time", type:"text"},
-			@		{name:"修改时间", index:"update_time", type:"text"},
-			@		{name:"相关描述", index:"descs", type:"text"}
+			@		{name:"修改时间", index:"update_time", type:"text"}
 			@];
 			@ include("/common/_function/_search.html",{"col":_col}){}
 			<!-- 按钮 -->

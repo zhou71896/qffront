@@ -18,14 +18,14 @@
 						"逻辑删除状态，0为启用，1为删除", 
 						"创建时间", 
 						"修改时间", 
-						""];
+						];
 		var _colmodel = [{name:"id", index:"id", width:100},
 						{name:"version_code", index:"version_code", width:100},
 						{name:"descs", index:"descs", width:100},
 						{name:"del_status", index:"del_status", width:100},
 						{name:"create_time", index:"create_time", width:100},
-						{name:"update_time", index:"update_time", width:100},
-						{name:"version", index:"version", width:100}];
+						{name:"update_time", index:"update_time", width:100}
+					];
 		
 		jQuery(grid_selector).jqGrid({
 			url : grid_url,
@@ -50,8 +50,7 @@
 			@		{name:"版本描述", index:"descs", type:"text"},
 			@		{name:"逻辑删除状态，0为启用，1为删除", index:"del_status", type:"text"},
 			@		{name:"创建时间", index:"create_time", type:"text"},
-			@		{name:"修改时间", index:"update_time", type:"text"},
-			@		{name:"", index:"version", type:"text"}							
+			@		{name:"修改时间", index:"update_time", type:"text"}
 			@];
 			@ include("/common/_function/_search.html",{"col":_col}){}
 			<!-- 按钮 -->

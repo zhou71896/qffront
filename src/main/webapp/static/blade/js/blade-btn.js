@@ -258,7 +258,21 @@ var exwhere;
         	$('#importExcel').click();
             return;
         }
+        if(this.alias=="downLoadCode"){
+            var _this = this;
+            var url=this.url;
+            layer.confirm('是否下载激活码？', {
+                icon: 3,
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                window.location.href = url;
 
+
+            }, function () {
+                //layer.msg('已取消');
+            });
+            return;
+        }
 
         //带子按钮区域
         if (this.alias == "audit" || this.alias == "recycle") {
@@ -413,52 +427,7 @@ var exwhere;
             });
             return;
         }
-        if(this.alias=="generateCode"){
-            var _this = this;
-            var url=this.url;
-            layer.confirm('是否生成激活码？', {
-                icon: 3,
-                btn: ['确定', '取消'] //按钮
-            }, function () {
-                $.post(url, { ids: ids }, function (data) {
-                    if (data.code === 0) {
-                        layer_alert(data.message, "success");
-                        searchGrid();
-                        _this.initOther();
-                    }
-                    else {
-                        layer_post(data);
-                    }
-                }, "json");
 
-            }, function () {
-                //layer.msg('已取消');
-            });
-            return;
-        }
-        if(this.alias=="downLoadCode"){
-            var _this = this;
-            var url=this.url;
-            layer.confirm('是否下载激活码？', {
-                icon: 3,
-                btn: ['确定', '取消'] //按钮
-            }, function () {
-                $.post(url, { ids: ids }, function (data) {
-                    if (data.code === 0) {
-                        layer_alert(data.message, "success");
-                        searchGrid();
-                        _this.initOther();
-                    }
-                    else {
-                        layer_post(data);
-                    }
-                }, "json");
-
-            }, function () {
-                //layer.msg('已取消');
-            });
-            return;
-        }
     };
 
     

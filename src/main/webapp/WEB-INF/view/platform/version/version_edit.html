@@ -5,13 +5,8 @@
 		@ var _table="version";
 		@ var _key="id";
 		@ var _col=[
-@			  {name:"业务编号", index:"id", type:"text",newline:true,length:8,required:"required"},
 		@			  {name:"版本号", index:"version_code", type:"text",newline:true,length:8,required:"required"},
-		@			  {name:"版本描述", index:"descs", type:"text",newline:true,length:8,required:"required"},
-		@			  {name:"逻辑删除状态，0为启用，1为删除", index:"del_status", type:"text",newline:true,length:8,required:"required"},
-		@			  {name:"创建时间", index:"create_time", type:"text",newline:true,length:8,required:"required"},
-		@			  {name:"修改时间", index:"update_time", type:"text",newline:true,length:8,required:"required"},
-		@			  {name:"", index:"version", type:"text",newline:true,length:8,required:"required"}		
+		@			  {name:"版本描述", index:"descs", type:"text",newline:true,length:8,required:"required"}
 		@		   ];
 		@ include("/common/_curd/_edit.html", {"col":_col, "table":_table, "key":_key}){}
 		
